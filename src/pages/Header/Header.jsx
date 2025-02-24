@@ -46,7 +46,6 @@ function Header() {
                     <Link to="/cart"> 
                         <IconContext.Provider value={{ color: 'white', size: '1.5rem' }}>
                             <FaShoppingCart />
-                            {/* Fler ikoner här kommer också att vara blå */}
                         </IconContext.Provider> 
                     </Link>
                 </div>

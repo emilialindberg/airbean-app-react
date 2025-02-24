@@ -1,0 +1,86 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative; /* Viktigt för att kunna positionera nav absolut */
+    
+    .hamburgerMenu {
+        padding: .75rem;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 2; /* Se till att hamburgermenyn är över naven */
+        border-radius: 50%;
+        background-color: #fff;
+    
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: rgb(31, 31, 31);;
+            margin: 3px 0;
+            transition: 0.3s ease; /* Lägg till transition för animation */
+        }
+    
+        .barOpen1 {
+            transform: rotate(45deg) translate(6px, 6px); /* Rotera och flytta */
+        }
+    
+        .barOpen2 {
+            opacity: 0; /* Gör den mellersta baren osynlig */
+        }
+    
+        .barOpen3 {
+            transform: rotate(-45deg) translate(6px, -6.5px); /* Rotera och flytta */
+        }
+    }
+    
+    nav {
+        transition: 0.3s ease; /* Transition för att naven ska animeras */
+        position: fixed;
+        margin: 0 auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(47, 41, 38, 1);
+        z-index: 1; /* Se rgb(31, 31, 31)att naven är under hamburgermenyn */
+        height: 100vh;
+        width: 375px;
+        overflow: auto;
+    
+        ul {
+            list-style: none;
+            margin-top: 10rem;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Stapla länkarna vertikalt */
+            align-items: center;
+            padding: 2rem;
+            gap: 1rem;
+    
+            li {
+                font-size: 2rem;
+                a {
+                    text-decoration: none;
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+    
+        &.open {
+            height: auto; /* Visa naven när den är öppen */
+        }
+    
+        &.closed {
+            height: 0; /* Dölj naven när den är stängd */
+        }
+    }
+
+    .cartIcon {
+        background-color: rgb(31, 31, 31);;
+        border-radius: 50%;
+        padding: .85rem;
+        
+    }
+}

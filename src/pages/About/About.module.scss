@@ -1,0 +1,52 @@
+.aboutContainer {
+    background-color: #F3E4E1;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+
+    header {
+        background-image: url('../../img/header.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 124px;
+    }
+
+    main {
+        margin: 1.5rem;
+        hgroup {
+            h1 {
+                text-align: left;
+            }
+            .boldP {
+                padding: 1rem 0 .2rem 0;
+                font: bold 16px Work Sans;
+                line-height: 22.4px;
+                text-align: left;
+            }
+        }
+        .ownerInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
+            img {
+                height: 74px;
+                width: 74px;
+                border-radius: 50%;
+                margin: .5rem 0;
+            }
+            h3 {
+                margin-bottom: .5rem;
+            }
+        }
+    }
+
+    footer {
+        background-image: url('../../img/footer.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 70px;
+        margin-top: 3rem;
+    }
+}

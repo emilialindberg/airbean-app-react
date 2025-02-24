@@ -1,0 +1,65 @@
+.menuContainer {
+    background-color: #F3E4E1;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    
+    header {
+        background-image: url('../../img/header.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 124px;
+    }
+    
+    .menuList {
+        padding: 1rem;
+        list-style: none;
+        
+        li {
+            margin-bottom: 1.2rem;
+            display: grid;
+            grid-template-columns: 8.5% auto 16%;
+            grid-template-rows: 28px 18px;
+            grid-template-areas: "a b c" "a d .";
+            gap: .1rem .5rem;
+
+            .addButton {
+                grid-area: a;
+            }
+
+            .coffeeName {
+                grid-area: b;
+            }
+            .coffeePrice {
+                grid-area: c;
+            }
+
+            p {
+                grid-area: d;
+            }
+        }
+    }
+
+    .menuList li button {
+        display: flex; /* För att centrera ikonen */
+        align-items: center; /* För att centrera ikonen vertikalt */
+        justify-content: center; /* För att centrera ikonen horisontellt */
+        border-radius: 50%;
+        padding: 3px;
+        background-color: rgb(31, 31, 31);;
+        color: #ffffff;
+    }
+    
+    .menuList li button svg {
+        width: 20px; /* Justera storleken på ikonen */
+        height: 20px; /* Justera storleken på ikonen */
+    }
+
+    footer {
+        background-image: url('../../img/footer.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 70px;
+        margin-top: 3rem;
+    }
+}

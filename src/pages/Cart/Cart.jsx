@@ -1,7 +1,9 @@
-
+import { useStore } from 'react-router-dom';
 
 
 function Cart()  {
+    const { cart, addQuantity, subractQuantity, sendOrder } = useStore(); 
+
     return(
     <div>
         <section>
@@ -12,6 +14,15 @@ function Cart()  {
                 <h5></h5>
                 <h5></h5>
             </hgroup>
+            <div>
+                <button className={styles.addBtn} onClick={() => addQuantity(cartItem.item.id)}>
+                    <AiOutlinePlus/>
+                </button> 
+                <p></p>
+                <button className={styles.subtractBtn} onClick={() => subtractQuantity(cartItem.item.id)}>
+                    <AiOutlineMinus/>
+                </button>
+            </div>
             <hgroup>
                 <h4></h4>
                 <h4></h4>

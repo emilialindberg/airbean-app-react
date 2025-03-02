@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import styles from './Menu.module.scss';
-import Header from '../Header/Header';
+import Header from '../../components/Header/Header';
 // import { useContext } from 'react';
 // import { CartProvider } from '../Cart/CartContext';  
 import { FaPlus } from 'react-icons/fa'; // Importerar plus-ikonen (npm install react-icons --save)

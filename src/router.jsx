@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'; // "createBrowserRouter"
 import App from './App.jsx'
 import Error from './pages/Error.jsx';
 import About from './pages/About/About.jsx';
-// import OrderStatus from './pages/OrderStatus/OrderStatus.jsx'
+import OrderStatus from './pages/OrderStatus/OrderStatus.jsx'
 import Menu from './pages/Menu/Menu.jsx';
 
 const router = createBrowserRouter([
@@ -20,11 +20,10 @@ const router = createBrowserRouter([
         path: 'about',
         element: <About />
     },
-
-    // {
-    //     path: 'order-status',
-    //     element: <OrderStatus />
-    // }
+    {
+        path: 'order-status',
+        element: <OrderStatus />
+    }
 ]);
 
 console.log("Router configuration:", router.routes); // Kontrollerar router-konfigurationen

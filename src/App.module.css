@@ -1,8 +1,0 @@
-@charset "UTF-8";
-.appContainer {
-  background-image: url("./img/landing.svg");
-  background-position: center;
-  background-size: cover; /* Skalar bilden för att täcka hela containern */
-  background-repeat: no-repeat; /* Förhindra att bilden upprepas */
-  height: 100vh; /* Viktigt: Använd vh-enheter för att täcka hela viewportens höjd */
-}/*# sourceMappingURL=App.module.css.map */

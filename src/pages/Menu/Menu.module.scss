@@ -2,8 +2,7 @@
     background-color: #F3E4E1;
     display: flex;
     flex-direction: column;
-    width: 140%;
-    
+    // justify-content: space-between;
     
     header {
         background-image: url('../../img/header.svg');
@@ -19,13 +18,10 @@
         li {
             margin-bottom: 1.2rem;
             display: grid;
-            grid-template-columns: 10% 65% 25%;
-            grid-template-rows: auto auto; /* Låter höjden justeras automatiskt */
-            grid-template-areas: 
-                "a b c" 
-                "a d c"; /* Prisets ruta sträcker sig även i nästa rad */
-            gap: 0.25rem 1rem;
-            overflow: visible; /* Säkerställer att ingen text klipps av */
+            grid-template-columns: 8.5% auto 16%;
+            grid-template-rows: 28px 18px;
+            grid-template-areas: "a b c" "a d .";
+            gap: .1rem .5rem;
 
             .addButton {
                 grid-area: a;
@@ -33,27 +29,13 @@
 
             .coffeeName {
                 grid-area: b;
-                white-space: nowrap; /* Förhindra radbrytning */
-                overflow: visible; /* Tillåt text att synas helt */
-                text-overflow: clip; /* Ingen "..." (ellipsis) */
-                max-width: 100%;
-                line-height: 1.2; /* Ökar utrymme för bokstäver med svansar som "g" och "p" */
             }
-
             .coffeePrice {
                 grid-area: c;
-                white-space: nowrap;
-                text-align: right;
-                align-self: center;
-                padding-right: 5rem; /* Extra utrymme till höger */
-                max-width: 100%; /* Hindrar att priset går utanför menyn */
-            
             }
 
             p {
                 grid-area: d;
-                margin-top: 0.3rem; /* Ger mer utrymme mellan namnet och beskrivningen */
-                line-height: 1.3; /* Ökar avståndet mellan rader */
             }
         }
     }

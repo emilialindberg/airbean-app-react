@@ -1,53 +1,47 @@
 import { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
 import styles from './Menu.module.scss';
-import Header from '../../components/header/Header';
-// import { useContext } from 'react';
-// import { CartProvider } from '../Cart/CartContext';  
-import { FaPlus } from 'react-icons/fa'; // Importerar plus-ikonen (npm install react-icons --save)
-
-const URL = 'https://airbean-9pcyw.ondigitalocean.app/api/beans/'; // Definierar URL:en som en konstant
-
-async function getMenu(setMenuItems, setLoading, setError) { // Funktion för att hämta menyn
-    console.log("getMenu called"); // Kontrollerar att funktionen anropas
-    setLoading(true); // Sätter loading-state till true
-    setError(null);    // Återställer error-state
-
-    try {
-        const response = await fetch(URL); // Gör anropet till API:et
-        console.dir(response); // Kollar statuskoden
-
-        if (!response.ok) { // Kontrollerar om svaret är ok (statuskod 200-299)
-            throw new Error(`HTTP error! status: ${response.status}`); // Kastar ett fel om det inte är ok
-        }
-        const data = await response.json(); // Konverterar svaret till JSON
-        console.log("Menu data (JSON):", data); // Kollar den konverterade datan
-
-        if (data.success && Array.isArray(data.menu)) { // Kontrollera formatet
-            setMenuItems(data.menu); // Extrahera och använd data.menu
-        } else {
-            console.error("Invalid data format from API:", data);
-            setError(new Error("Invalid data format from API"));
-        }
-        
-    } catch (error) {
-        console.error("Error fetching menu:", error); // Mer specifik felmeddelande
-        setError(error); // Sättr error-state om något går fel
-    } finally {
-        setLoading(false); // Sätter loading-state till false oavsett om det gick bra eller inte
-    }
-}
+import Header from '../../components/header/Header'; 
+import { FaPlus } from 'react-icons/fa'; // Importerar plus- och korg-ikoner (npm install react-icons --save)
+import { useStore } from '../../store/StoreUtils'; 
+import Button from '../../components/button/Button';
+import { getMenu } from '../../components/api/Api';
 
 function Menu() {
     console.log("Menu component is rendering");
     const [menuItems, setMenuItems] = useState([]); // Lagra menyn här
     const [loading, setLoading] = useState(true); // Håll koll på om datan laddas
     const [error, setError] = useState(null); // Hantera eventuella fel
-    // const { addToCart, cartItems } = useContext(CartContext); // Hämta cartItems från context
+
+    const { addToCart } = useStore(); // Hämta addToCart från StoreContext
+
+    const [cartItems, setCartItems] = useState([]); // Ny state för varukorgen
+
+    const handleAddToCart = (item) => {
+        addToCart(item); // Anropa den ursprungliga addToCart-funktionen
+
+        const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+        if (existingItem) {
+            setCartItems(cartItems.map(cartItem =>
+                cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+            ));
+        } else {
+            setCartItems([...cartItems, { ...item, quantity: 1 }]);
+        }
+    };
 
     useEffect(() => {
-        getMenu(setMenuItems, setLoading, setError); // Anropa funktionen för att hämta menyn
-    }, []); // Tom array som dependency gör att anropet endast sker en gång
+        async function fetchMenu() {
+            try {
+                const menu = await getMenu();
+                setMenuItems(menu);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchMenu();
+    }, []);  // Tom array som dependency gör att anropet endast sker en gång
     console.log("getMenu called");
 
     if (loading) {
@@ -70,19 +64,12 @@ function Menu() {
                         menuItems.map(item => (
                             <li key={item.id}>
                                 <div className={styles.addButton}>
-                                    <button onClick={() => addToCart(item)}>
-                                        <FaPlus />
-                                    </button>
+                                <Button onClick={() => handleAddToCart(item)}>
+                                    <FaPlus />
+                                </Button>
                                 </div>
-                                {/* Visa räknaren bredvid varukorgsikonen */}
-                                {/* <div className={styles.cartIcon}>  */}
-                                    {/* <Link to="/cart"> */}
-                                        {/* <FaShoppingCart /> */}
-                                        {/* <span>{cartItems.reduce((sum, item) => sum + item.quantity, 0)}</span> */}
-                                    {/* </Link> */}
-                                {/* </div> */}
-                                <h3 className={styles.coffeeName}>{item.title}</h3>
-                                <h3 className={styles.coffeePrice}>{item.price} kr</h3>
+                                <h4 className={styles.coffeeName}>{item.title}</h4>
+                                <h4 className={styles.coffeePrice}>{item.price} kr</h4>
                                 <p>{item.desc}</p>
                             </li>
                         ))

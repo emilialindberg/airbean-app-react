@@ -1,4 +1,4 @@
-import styles from '../order/OrderStatus.module.scss';
+import styles from './Order.module.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Button from '../../components/button/Button';

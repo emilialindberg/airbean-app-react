@@ -32,14 +32,58 @@ export const StoreProvider = ({ children }) => {    // En funktionell React-komp
         ));
     };
 
-    const sendOrder = (cart) => {
-        // En funktion som simulerar att skicka en order till en server. Den loggar varukorgen till konsolen.
-        console.log("Skickar order:", cart);
+    const sendOrder = async (cartItems) => {
+        const URL = 'https://airbean-9pcyw.ondigitalocean.app/api/beans/order';
+        const orderArray = cartItems.map(item => ({
+            name: item.item.title,
+            price: item.item.price
+        }));
+
+        try {
+            const response = await fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+
+                body: JSON.stringify({
+                    details: {
+                        order: orderArray
+                    }
+                }),
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const responseData = await response.json();
+            console.log("Order skickad:", responseData);
+    
+    
+            const total = cartItems.reduce((acc, item) => acc + item.item.price * item.quantity, 0);
+            const newOrderConfirmation = {
+            orderNumber: Math.floor(Math.random() * 100000),
+            orderDate: new Date().toLocaleDateString(),
+            items: cartItems,
+            total: total,
+        };
+    
+            console.log("Orderbekräftelse:", newOrderConfirmation);
+            setCart([]);
+            
+            return newOrderConfirmation; // Returnera orderbekräftelsen
+        } catch (error) {
+            console.error("Fel vid skickande av order:", error);
+        }
     };
 
+    const clearCart = () => {
+        setCart([]);
+    };
 
     return (
-        <StoreContext.Provider value={{ cart, addToCart, addQuantity, subtractQuantity, sendOrder }}>
+        <StoreContext.Provider value={{ cart, addToCart, addQuantity, subtractQuantity, sendOrder, clearCart }}>
             {children}
         </StoreContext.Provider>
     );
@@ -49,7 +93,4 @@ StoreProvider.propTypes = {
     children: PropTypes.node.isRequired, // children är en React-nod och är obligatorisk
 };
 
-
-
-
-export default StoreContext;
+export { StoreContext };

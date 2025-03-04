@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'; // "createBrowserRouter" används för DOM History API som uppdaterar URL
 import App from './App.jsx'
-import Error from './pages/Error.jsx';
-import About from './pages/About/About.jsx';
-import OrderStatus from './pages/order/OrderStatus.jsx'
-import Menu from './pages/Menu/Menu.jsx';
+import Error from './Error.jsx';
+import About from './pages/about/About.jsx';
+import OrderStatus from './pages/order/OrderStatus.jsx';
+import Menu from './pages/menu/Menu.jsx';
 
 const router = createBrowserRouter([
     {

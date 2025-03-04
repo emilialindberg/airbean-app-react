@@ -1,18 +1,26 @@
 .cart {
-    background-color: #0000001a;
+    background-color: #000000b5;
     width: 375px;
-    // height: 100vh;
     position: fixed;
     z-index: 1000;
+    display: flex;
+    justify-content: center;
+    
+    
+
     .bubble {
+        width: 90%;
         background-color: #fff;
         border-radius: 5px;
-        margin: 2rem 1rem ;
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         position: relative;
         display: flex;
         flex-direction: column;
+        margin-top: 13rem;
+        margin-bottom: 1rem;
+        align-items: center;
+        
 
         h3 {
             margin-bottom: 1rem;

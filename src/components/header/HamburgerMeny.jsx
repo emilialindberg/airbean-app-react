@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from '../header/Header.module.scss';
+import styles from './Header.module.scss';
 
 function HamburgerMenu({ isMenuOpen, toggleMenu }) {
     return (

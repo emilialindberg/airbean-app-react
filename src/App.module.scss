@@ -1,7 +1,10 @@
 .appContainer {
-  background-image: url('./img/landing.svg');
+  background-image: url('./img/landing.png');
   background-position: center;
-  background-size: cover; /* Skalar bilden för att täcka hela containern */
+  background-size: cover; /* Skala bilden för att täcka hela containern */
   background-repeat: no-repeat; /* Förhindra att bilden upprepas */
   height: 100vh; /* Viktigt: Använd vh-enheter för att täcka hela viewportens höjd */
+  width: 375px; /* Täcker hela viewportens bredd också */
+  margin: 0 auto;
+  text-align: center;
 }

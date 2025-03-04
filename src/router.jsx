@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'; // "createBrowserRouter"
 import App from './App.jsx'
 import Error from './pages/Error.jsx';
 import About from './pages/About/About.jsx';
-import OrderStatus from './pages/OrderStatus/OrderStatus.jsx'
+import OrderStatus from './pages/order/OrderStatus.jsx'
 import Menu from './pages/Menu/Menu.jsx';
 
 const router = createBrowserRouter([

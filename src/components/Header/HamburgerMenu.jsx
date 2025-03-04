@@ -1,5 +1,5 @@
-import Proptypes from 'prop-types';
-import styles from './HamburgerMeny.module.scss';
+import PropTypes from 'prop-types';
+import styles from './Header.module.scss';
 
 function HamburgerMenu({ isMenuOpen, toggleMenu }) {
     return (
@@ -11,9 +11,9 @@ function HamburgerMenu({ isMenuOpen, toggleMenu }) {
     );
 }
 
-HamburgerMeny.propTypes = {
-    isMenuOpen: Proptypes.bool.isRequired,
-    toggleMenu: Proptypes.func.isRequired,
+HamburgerMenu.propTypes = {
+    isMenuOpen: PropTypes.bool.isRequired,
+    toggleMenu: PropTypes.func.isRequired,
 };
 
 export default HamburgerMenu;

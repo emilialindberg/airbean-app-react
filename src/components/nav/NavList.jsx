@@ -3,20 +3,20 @@ import styles from '../header/Header.module.scss';
 import PropTypes from 'prop-types';
 
 
-function Navlinks({ isMenuOpen }) {
+function NavLinks({ isMenuOpen }) {
     const location = useLocation();
     console.log("Current location:", location.pathname);
     return (
-        <nav>
+        <nav className={isMenuOpen ? styles.open : styles.closed}>
             <ul>
                 <li>
-                    <Link to="/menu" className={StyleSheet.link}>Meny</Link>
+                    <Link to="/menu" className={styles.link}>Meny</Link>
                 </li>
                 <li>
-                    <Link to="/about" className={StyleSheet.link}>Vårt Kaffe</Link>
+                    <Link to="/about" className={styles.link}>Vårt kaffe</Link>
                 </li>
                 <li>
-                    <Link to="/order-status" className={StyleSheet.link}>OrderStatus</Link>  
+                    <Link to="/order-status" className={styles.link}>OrderStatus</Link>
                 </li>
             </ul>
         </nav>
@@ -27,4 +27,4 @@ NavLinks.propTypes = {
     isMenuOpen: PropTypes.bool.isRequired,
 };
 
-export default Navlinks;
+export default NavLinks;

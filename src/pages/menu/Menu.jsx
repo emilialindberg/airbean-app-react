@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './Menu.module.scss';
 import Header from '../../components/header/Header'; 
-import { FaPlus } from 'react-icons/fa'; // Importerar plus- och korg-ikoner (npm install react-icons --save)
+import { FaPlus } from 'react-icons/fa'; 
 import { useStore } from '../../store/StoreUtils'; 
 import Button from '../../components/button/Button';
 import { getMenu } from '../../components/api/Api';
@@ -60,7 +60,7 @@ function Menu() {
             <main>
                 <h1>Meny</h1>
                 <section className={styles.menuList}>
-                    {menuItems?.length > 0 ? ( // Kontrollerar om menuItems finns och har data
+                    {menuItems?.length > 0 ? ( 
                         menuItems.map(item => (
                             <li key={item.id}>
                                 <div className={styles.addButton}>
@@ -74,7 +74,7 @@ function Menu() {
                             </li>
                         ))
                     ) : (
-                        <p>Inga kaffealternativ tillgängliga ännu.</p> // Visar ett meddelande om menyn är tom
+                        <p>Inga kaffealternativ tillgängliga ännu.</p>
                     )}
                 </section>
             </main>

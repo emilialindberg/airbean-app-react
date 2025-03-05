@@ -11,7 +11,7 @@ function CartItem({ cartItem, addQuantity, subtractQuantity }) {
                 <Button className={styles.addBtn} onClick={() => addQuantity(cartItem.item.id)}>
                     <AiOutlinePlus />
                 </Button>
-                <p>{cartItem.quantity}</p>
+                <p className={styles.quantityHoldersP}>{cartItem.quantity}</p>
                 <Button className={styles.subtractBtn} onClick={() => subtractQuantity(cartItem.item.id)}>
                     <AiOutlineMinus />
                 </Button>

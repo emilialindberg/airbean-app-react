@@ -38,16 +38,16 @@ npm run build
 ## 📂 Project structure
 ```
 .
-│   ├── components/     # Återanvändbara komponenter
-│   ├── pages/          # Applikationssidor
-│   ├── img/            # Bilder
-│   ├── assets/         # Övriga assets (typsnitt m.m)
-│   ├── App.jsx         # Huvudkomponenten för applikationen
-│   ├── main.jsx        # Reacts inmatningspunkt
-├── public/             # Publika filer (index.html, etc.)
-├── package.json        # Projektberoenden och skript
-├── vite.config.js      # Vite-konfigurationsfil
-└── README.md           # Projektdokumentation
+│   ├── components/     # Reusable components
+│   ├── pages/          # Applicationsites
+│   ├── img/            # Images
+│   ├── assets/         # Other assets (fonts etc.)
+│   ├── App.jsx         # The main component of the application
+│   ├── main.jsx        # React's entry point
+├── public/             # Public files (index.html, etc.)
+├── package.json        # Project independencies and script
+├── vite.config.js      # Vite-configuration file
+└── README.md           # Project documentation
 ```
 
 

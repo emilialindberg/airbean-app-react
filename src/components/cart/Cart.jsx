@@ -24,6 +24,7 @@ function Cart() {
                 setLoading(false);
                 if(orderConfirmation){
                     clearCart();
+                    localStorage.setItem('activeOrder', JSON.stringify(orderConfirmation));
                     navigate('/order-status', { state: { orderConfirmation } }); // Tar emot ett orderConfirmation objekt som bekräftar ordern. Om ordern är bekräftad, navigerar till '/order-status' sidan, och skickar orderinformationen som state.
                     console.log('Orderconfirmation: '+ orderConfirmation);
                 } else {
@@ -35,7 +36,7 @@ function Cart() {
                 setLoading(false);      // Sätter loading till false när betalningsprocessen är klar.
             }
         } else {
-            error('Din varukorg är tom!');      // Om varukorgen är tom, sätter ett felmeddelande.
+            error('Din varukorg är tom!'); 
         }
     }; 
     return (

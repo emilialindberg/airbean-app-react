@@ -18,11 +18,16 @@
 
     .bubble {
         width: 90%;
+    cart_style
         background-color: #fff;
         border-radius: 8px;
+
+        background-color: #ffffff;
+        border-radius: 5px;
+    main
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-top: 3rem;
+        margin-top: 3rem; 
         position: relative;
         display: flex;
         flex-direction: column;
@@ -44,6 +49,7 @@
         }
 
         .cartItem {
+         cart_style
             width: 100%;
             display: grid;
             grid-template-columns: 1fr auto; /* Namn och pris till vänster, knappar till höger */
@@ -68,6 +74,11 @@
                 color: gray;
             }
 
+
+            
+            width: 300px;
+           
+            main
             .quantityHolders {
                 display: flex;
                 align-items: center;

@@ -5,14 +5,15 @@ import Button from '../button/Button';
 function CartActions({ handlePay, clearCart, loading, error }) {
     return (
         <div>
+            <Button onClick={clearCart}>Töm varukorgen</Button> <br />
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <Button className={styles.payBtn}
             onClick={handlePay}
             disabled={loading}
             >
-                {loading ? 'Behandlar...' : 'Betala!'}
+                {loading ? 'Behandlar...' : 'Betala'}
             </Button>
-            <Button onClick={clearCart}>Töm varukorgen</Button>
+            
         </div>
     );
 }

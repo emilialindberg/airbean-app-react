@@ -1,41 +1,41 @@
 # Bruna Räven Airbean
 
-Examination "Airbean" skrivet i React med vanilla javascript.
+Examination "Airbean" programmed in React and Vanilla Javascript.
 
-## Skript
+## Script
 
-- `npm run dev` - Starta dev servern lokalt
-- `npm run build` - Bygg projektet för produktion
-- `npm run lint` - Linting med ESLint
+- `npm run dev` - Start local dev-server.
+- `npm run build` - Build project for production
+- `npm run lint` - Linting with ESLint
 
-## Komma igång
+## Get started
 
 ### 📦 Installation
 
-1. Klona repot:
+1. Clone repo:
    ```sh
    git clone https://github.com/emilialindberg/airbean-app-react.git
    cd airbean-app-react
    ```
-2. Installa paket:
+2. Install package:
    ```sh
    npm install
    ```
 
-### 🔧 Utveckling
+### 🔧 Develop
 
-Starta utvecklingsservern:
+Start develop-server:
 ```sh
 npm run dev
 ```
-Appen kommer finnas tillgänglig här: [http://localhost:5173](http://localhost:5173).
+The app is available here: [http://localhost:5173](http://localhost:5173).
 
-### 🏗️ Bygga för produktion
+### 🏗️ Build for production
 
 ```sh
 npm run build
 ```
-## 📂 Projektets struktur
+## 📂 Project structure
 ```
 .
 │   ├── components/     # Återanvändbara komponenter

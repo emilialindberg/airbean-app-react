@@ -1,6 +1,6 @@
 # Bruna Räven Airbean
 
-Examination "Airbean" programmed in React and Vanilla Javascript.
+Examination-project "Airbean" programmed in React and Vanilla Javascript.
 
 ## Script
 

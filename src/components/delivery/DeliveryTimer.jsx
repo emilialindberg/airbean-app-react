@@ -21,9 +21,9 @@ function DeliveryTimer({ minutes }) {
     return (
         <div>
         {timeLeft > 0 ? (
-            <h1> {formatMinutes(timeLeft)} minuter </h1>
+            <h4> {formatMinutes(timeLeft)} minuter </h4>
         ) : (
-            <h1>Levererad!</h1>
+            <h4>Levererad!</h4>
         )}
         </div>
     );

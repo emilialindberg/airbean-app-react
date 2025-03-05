@@ -1,81 +1,33 @@
-import PropTypes from 'prop-types'; // Används för att definiera typer för props, vilket hjälper till att fånga fel tidigt i utvecklingen.
-import { useState, createContext } from 'react';    // createContext: En React-funktion som skapar ett Context-objekt, vilket möjliggör delning av tillstånd mellan komponenter utan att manuellt skicka props genom komponentträdet.
+import PropTypes from 'prop-types';
+import { useState, createContext } from 'react';
 
+const StoreContext = createContext();
 
-const StoreContext = createContext(); // Skapar ett nytt Context-objekt. Detta objekt kommer att användas för att tillhandahålla och konsumera varukorgstillståndet.
+export const StoreProvider = ({ children }) => {
+    const [cart, setCart] = useState([]); 
 
-export const StoreProvider = ({ children }) => {    // En funktionell React-komponent som fungerar som en Provider för StoreContext. children: En prop som representerar de komponenter som kommer att omslutas av StoreProvider. Dessa komponenter kommer att ha tillgång till varukorgstillståndet.
-
-    const [cart, setCart] = useState([]);   //  Använder useState för att skapa ett tillståndsvärde cart (varukorgen) och en funktion setCart för att uppdatera det. cart är initialt en tom array.
-
-    const addToCart = (item) => {   //En funktion som lägger till en vara (item) i varukorgen.
+    const addToCart = (item) => {
         const existingItem = cart.find(cartItem => cartItem.item.id === item.id); 
 
-        if (existingItem) {     // Kontrollerar om varan redan finns i varukorgen.
-            setCart(cart.map(cartItem =>    // Uppdaterar varukorgen genom att öka kvantiteten för den befintliga varan.
+        if (existingItem) { 
+            setCart(cart.map(cartItem => 
                 cartItem.item.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
             ));
-        } else {    //  Lägger till varan i varukorgen med en kvantitet på 1.
-            setCart([...cart, { item, quantity: 1 }]); // Lägg till item-objektet och kvantitet
+        } else {
+            setCart([...cart, { item, quantity: 1 }]); 
         }
     };
 
-    const addQuantity = (id) => {   // Ökar kvantiteten för en vara i varukorgen baserat på dess id.
+    const addQuantity = (id) => {
         setCart(cart.map(cartItem =>
             cartItem.item.id === id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
         ));
     };
 
-    const subtractQuantity = (id) => {      // Minskar kvantiteten för en vara i varukorgen baserat på dess id. Math.max(1, ...) säkerställer att kvantiteten inte går under 1.
+    const subtractQuantity = (id) => {
         setCart(cart.map(cartItem =>
             cartItem.item.id === id ? { ...cartItem, quantity: Math.max(0, cartItem.quantity - 1) } : cartItem
         ));
-    };
-
-    const sendOrder = async (cartItems) => {
-        const URL = 'https://airbean-9pcyw.ondigitalocean.app/api/beans/order';
-        const orderArray = cartItems.map(item => ({
-            name: item.item.title,
-            price: item.item.price
-        }));
-
-        try {
-            const response = await fetch(URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-
-                body: JSON.stringify({
-                    details: {
-                        order: orderArray
-                    }
-                }),
-            });
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-    
-            const responseData = await response.json();
-            console.log("Order skickad:", responseData);
-    
-    
-            const total = cartItems.reduce((acc, item) => acc + item.item.price * item.quantity, 0);
-            const newOrderConfirmation = {
-            orderNumber: Math.floor(Math.random() * 100000),
-            orderDate: new Date().toLocaleDateString(),
-            items: cartItems,
-            total: total,
-        };
-    
-            console.log("Orderbekräftelse:", newOrderConfirmation);
-            setCart([]);
-            
-            return newOrderConfirmation; // Returnera orderbekräftelsen
-        } catch (error) {
-            console.error("Fel vid skickande av order:", error);
-        }
     };
 
     const clearCart = () => {
@@ -83,14 +35,14 @@ export const StoreProvider = ({ children }) => {    // En funktionell React-komp
     };
 
     return (
-        <StoreContext.Provider value={{ cart, addToCart, addQuantity, subtractQuantity, sendOrder, clearCart }}>
+        <StoreContext.Provider value={{ cart, addToCart, addQuantity, subtractQuantity, clearCart }}>
             {children}
         </StoreContext.Provider>
     );
 };
 
 StoreProvider.propTypes = {
-    children: PropTypes.node.isRequired, // children är en React-nod och är obligatorisk
+    children: PropTypes.node.isRequired, 
 };
 
 export { StoreContext };

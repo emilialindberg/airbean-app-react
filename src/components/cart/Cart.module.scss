@@ -5,7 +5,7 @@
     z-index: 1000;
     display: flex;
     justify-content: center;
-    
+    height:180%;
     
 
     .bubble {
@@ -17,9 +17,11 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        margin-top: 13rem;
-        margin-bottom: 1rem;
+        margin-top: 53rem;
         align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+       
         
 
         h3 {
@@ -28,11 +30,13 @@
         }
 
         .cartItem {
+            margin-bottom: 15rem;
             width: 300px;
             // background-color: aqua;
             .quantityHolders {
-                background-color: bisque;
+                background-color: rgb(255, 255, 255);
                 margin-bottom: 1rem;
+                margin-top: 8rem;
             }
             .quantityNr {
                 background-color: brown;

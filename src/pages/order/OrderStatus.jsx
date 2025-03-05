@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Button from '../../components/button/Button';
 import droneImage from '../../img/drone.svg';
+import DeliveryTimer from '../../components/delivery/DeliveryTimer';
 
 function OrderStatus() {
     const location = useLocation();
@@ -27,21 +28,12 @@ function OrderStatus() {
     };
 
     return (
-        <section className={styles.order}>
-            <p>Ordernummer: {orderConfirmation.orderNumber}</p>
+        <section className= {styles.order} >
+            <p> Ordernummer: {orderConfirmation.orderNumber} </p>
             <img src={droneImage} alt="Drone picture" />
-            
-            {/* <p>Orderdatum: {orderConfirmation.orderDate}</p> */}
-            <h3>Din beställning är på väg!</h3>
-            <ul>
-                {/* {orderConfirmation.items.map((item) => (
-                    <li key={item.item.id}>
-                        {item.item.title} - {item.quantity} st - {item.item.price} kr
-                    </li>
-                ))} */}
-            </ul>
-            {/* <p>Total: {orderConfirmation.total} kr</p> */}
-            <Button onClick={handleAccept}>Ok, Cool!</Button>
+            <h3> Din beställning är på väg!</h3> 
+            <DeliveryTimer minutes= {orderConfirmation.leverans} />
+            <Button onClick={handleAccept}> Ok, Cool! </Button>
         </section>
     );
 }

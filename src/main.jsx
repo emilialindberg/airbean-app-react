@@ -7,8 +7,8 @@ import { StoreProvider } from './store/Store';
 
 createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-      <StoreProvider> {/* Wrappa hela appen med StoreProvider */}
-        <RouterProvider router={router} /> {/* Använd RouterProvider */}
+      <StoreProvider> 
+        <RouterProvider router={router} /> 
       </StoreProvider>
     </React.StrictMode>
 );

@@ -8,16 +8,16 @@ import { getMenu } from '../../components/api/Api';
 
 function Menu() {
     console.log("Menu component is rendering");
-    const [menuItems, setMenuItems] = useState([]); // Lagra menyn här
-    const [loading, setLoading] = useState(true); // Håll koll på om datan laddas
-    const [error, setError] = useState(null); // Hantera eventuella fel
+    const [menuItems, setMenuItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null); 
 
-    const { addToCart } = useStore(); // Hämta addToCart från StoreContext
+    const { addToCart } = useStore();
 
-    const [cartItems, setCartItems] = useState([]); // Ny state för varukorgen
+    const [cartItems, setCartItems] = useState([]); 
 
     const handleAddToCart = (item) => {
-        addToCart(item); // Anropa den ursprungliga addToCart-funktionen
+        addToCart(item); 
 
         const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
         if (existingItem) {
@@ -41,7 +41,7 @@ function Menu() {
             }
         }
         fetchMenu();
-    }, []);  // Tom array som dependency gör att anropet endast sker en gång
+    }, []); 
     console.log("getMenu called");
 
     if (loading) {

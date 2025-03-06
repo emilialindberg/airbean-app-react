@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from '../header/Header.module.scss';
-import { Link, useLocation } from 'react-router-dom';    // Importerar Link för att skapa interna länkar
+import { Link, useLocation } from 'react-router-dom';  
 
 function NavLinks({ isMenuOpen }) {
     const location = useLocation();

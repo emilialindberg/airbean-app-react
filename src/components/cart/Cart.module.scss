@@ -73,8 +73,7 @@
         .addBtn, .subtractBtn {
             border: 1px solid #ddd;
             border-radius: 50%;
-            padding: 2px 7px 0; /* Öka knappstorleken */
-            // margin: 0 .5rem;
+            padding: 2px 7px 0; 
             align-items: center;
             font-size: 1rem;
         }
@@ -82,10 +81,6 @@
         .quantityHoldersP {
             margin: 1rem 1rem 2rem;
         }
-
-        // p {
-        //     grid-area: 3;
-        // }
 
         .hGroup {
             margin: 1rem 0 3rem 0;

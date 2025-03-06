@@ -6,6 +6,8 @@ import CartItem from './CartItem';
 import CartTotal from './CartTotal';
 import CartActions from './CartActions';
 import { sendOrder } from '../../components/api/Api';
+import Button from '../button/Button';
+import { MdClose } from "react-icons/md";
 
 function Cart() {
     const { cart, addQuantity, subtractQuantity, clearCart } = useStore();
@@ -38,9 +40,13 @@ function Cart() {
         } else {
             error('Din varukorg är tom!'); 
         }
-    }; 
+    };
+
     return (
         <div className={styles.cart}>
+            <div className={styles.closeBtn}>
+                <Button className={styles.closeButton} onClick={() => navigate('/menu')}><MdClose /></Button>
+            </div>
             <section className={styles.bubble}>
                 <h3>Din beställning</h3>
                 {cart.length === 0 ? <pre>Varukorgen är tom.</pre> : (

@@ -2,16 +2,16 @@
     background-color: #F3E4E1;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     
     header {
         background-image: url('../../img/header.svg');
-        background-size: cover;
         background-repeat: no-repeat;
-        height: 124px;
+        height: 110px;
+        margin-bottom: 2rem;
     }
     
     .menuList {
+        margin-top: 2rem;
         padding: 1rem;
         list-style: none;
         
@@ -41,9 +41,9 @@
     }
 
     .menuList li button {
-        display: flex; /* För att centrera ikonen */
-        align-items: center; /* För att centrera ikonen vertikalt */
-        justify-content: center; /* För att centrera ikonen horisontellt */
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
         border-radius: 50%;
         padding: 3px;
         background-color: rgb(31, 31, 31);;
@@ -51,8 +51,8 @@
     }
     
     .menuList li button svg {
-        width: 20px; /* Justera storleken på ikonen */
-        height: 20px; /* Justera storleken på ikonen */
+        width: 20px;
+        height: 20px;
     }
 
     footer {

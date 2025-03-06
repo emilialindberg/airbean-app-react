@@ -15,8 +15,8 @@ function CartIcon({ totalItemsInCart, openCartModal }) {
 }
 
 CartIcon.propTypes = {
-    totalItemsInCart: PropTypes.number.isRequired, // totalItemsInCart ska vara ett nummer
-    openCartModal: PropTypes.func.isRequired, // openCartModal ska vara en funktion
+    totalItemsInCart: PropTypes.number.isRequired,
+    openCartModal: PropTypes.func.isRequired, 
 };
 
 export default CartIcon;

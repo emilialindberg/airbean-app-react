@@ -3,14 +3,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    position: relative; /* Viktigt för att kunna positionera nav absolut */
+    position: relative; 
     
     .hamburgerMenu {
         padding: .75rem;
         display: flex;
         flex-direction: column;
         cursor: pointer;
-        z-index: 2; /* Se till att hamburgermenyn är över naven */
+        z-index: 2; 
         border-radius: 50%;
         background-color: #fff;
         margin-right: 15rem;
@@ -20,24 +20,24 @@
             height: 3px;
             background-color: rgb(31, 31, 31);;
             margin: 3px 0;
-            transition: 0.3s ease; /* Lägg till transition för animation */
+            transition: 0.3s ease; 
         }
     
         .barOpen1 {
-            transform: rotate(45deg) translate(6px, 6px); /* Rotera och flytta */
+            transform: rotate(45deg) translate(6px, 6px); 
         }
     
         .barOpen2 {
-            opacity: 0; /* Gör den mellersta baren osynlig */
+            opacity: 0; 
         }
     
         .barOpen3 {
-            transform: rotate(-45deg) translate(6px, -6.5px); /* Rotera och flytta */
+            transform: rotate(-45deg) translate(6px, -6.5px); 
         }
     }
     
     nav {
-        transition: 0.3s ease; /* Transition för att naven ska animeras */
+        transition: 0.3s ease; 
         position: fixed;
         margin: 0 auto;
         top: 0;
@@ -45,7 +45,7 @@
         bottom: 0;
         right: 0;
         background-color: rgba(47, 41, 38, 1);
-        z-index: 1; /* Se rgb(31, 31, 31)att naven är under hamburgermenyn */
+        z-index: 1; 
         height: 100vh;
         width: 375px;
         overflow: auto;
@@ -55,7 +55,7 @@
             margin-top: 10rem;
             padding: 0;
             display: flex;
-            flex-direction: column; /* Stapla länkarna vertikalt */
+            flex-direction: column; 
             align-items: center;
             padding: 2rem;
             gap: 1rem;
@@ -70,11 +70,11 @@
         }
     
         &.open {
-            height: auto; /* Visa naven när den är öppen */
+            height: auto; 
         }
     
         &.closed {
-            height: 0; /* Dölj naven när den är stängd */
+            height: 0; 
         }
     }
 

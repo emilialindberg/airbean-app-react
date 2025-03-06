@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Header.module.scss';
-import CartModal from '../cart/Cart';
+import CartModal from '../../components/cart/Cart';
 import { useStore } from '../../store/StoreUtils'; 
 import NavLinks from '../nav/NavList';
 import HamburgerMenu from './HamburgerMeny';

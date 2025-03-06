@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
 function DeliveryTimer({ minutes }) {
-  const [timeLeft, setTimeLeft] = useState(minutes * 60);
+    const [timeLeft, setTimeLeft] = useState(minutes * 60);
 
     useEffect(() => {
         if (timeLeft <= 0) return;
 
         const intervalId = setInterval(() => {
-        setTimeLeft(timeLeft - 1);
+            setTimeLeft(timeLeft - 1);
         }, 1000);
 
         return () => clearInterval(intervalId);
@@ -20,11 +20,11 @@ function DeliveryTimer({ minutes }) {
 
     return (
         <div>
-        {timeLeft > 0 ? (
-            <h4> {formatMinutes(timeLeft)} minuter </h4>
-        ) : (
-            <h4>Levererad!</h4>
-        )}
+            {timeLeft > 0 ? (
+                <h4> {formatMinutes(timeLeft)} minuter </h4>
+            ) : (
+                <h4>Levererad!</h4>
+            )}
         </div>
     );
 }

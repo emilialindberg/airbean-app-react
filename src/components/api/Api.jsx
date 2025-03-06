@@ -49,7 +49,7 @@ async function sendOrder(cartItems) {
 
         const total = cartItems.reduce((acc, item) => acc + item.item.price * item.quantity, 0);
         const newOrderConfirmation = {
-            orderNumber:responseData.orderNr,
+            orderNumber: responseData.orderNr,
             leverans: Date.now() + responseData.eta * 60000,
             orderDate: new Date().toLocaleDateString(),
             items: cartItems,

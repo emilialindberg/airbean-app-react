@@ -14,7 +14,7 @@ function OrderStatus() {
     useEffect(() => {
         const storedOrder = localStorage.getItem('activeOrder');
         const parsedOrder = storedOrder ? JSON.parse(storedOrder) : null;
-    
+
         if (parsedOrder) {
             if (JSON.stringify(parsedOrder) !== JSON.stringify(activeOrder)) {
                 setActiveOrder(parsedOrder);
@@ -42,10 +42,10 @@ function OrderStatus() {
     }
 
     return (
-        <section className= {styles.order} >
+        <section className={styles.order} >
             <p>Ordernummer: {activeOrder.orderNumber}</p>
             <img src={droneImage} alt="Drone picture" />
-            <h3> Din beställning är på väg!</h3> 
+            <h3> Din beställning är på väg!</h3>
             <DeliveryTimer minutes={(activeOrder.leverans - Date.now()) / 60000} />
             <Button onClick={handleAccept}> Ok, Cool! </Button>
         </section>

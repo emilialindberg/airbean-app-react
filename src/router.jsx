@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'; 
+import { createBrowserRouter } from 'react-router-dom';
 import App from './App.jsx'
 import Error from './Error.jsx';
 import About from './pages/about/About.jsx';
@@ -26,6 +26,6 @@ const router = createBrowserRouter([
     }
 ]);
 
-console.log("Router configuration:", router.routes); 
+console.log("Router configuration:", router.routes);
 
 export default router;

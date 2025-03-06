@@ -1,4 +1,5 @@
-*, html {
+*,
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,8 +7,8 @@
 
 body {
     font-family: PT serif;
-    height: 100vh; 
-    width: 375px; 
+    height: 100vh;
+    width: 375px;
     margin: 0 auto;
     text-align: center;
 }

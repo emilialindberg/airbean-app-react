@@ -4,17 +4,17 @@ import { useState, createContext } from 'react';
 const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
-    const [cart, setCart] = useState([]); 
+    const [cart, setCart] = useState([]);
 
     const addToCart = (item) => {
-        const existingItem = cart.find(cartItem => cartItem.item.id === item.id); 
+        const existingItem = cart.find(cartItem => cartItem.item.id === item.id);
 
-        if (existingItem) { 
-            setCart(cart.map(cartItem => 
+        if (existingItem) {
+            setCart(cart.map(cartItem =>
                 cartItem.item.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
             ));
         } else {
-            setCart([...cart, { item, quantity: 1 }]); 
+            setCart([...cart, { item, quantity: 1 }]);
         }
     };
 
@@ -42,7 +42,7 @@ export const StoreProvider = ({ children }) => {
 };
 
 StoreProvider.propTypes = {
-    children: PropTypes.node.isRequired, 
+    children: PropTypes.node.isRequired,
 };
 
 export { StoreContext };

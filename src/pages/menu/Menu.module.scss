@@ -2,19 +2,19 @@
     background-color: #F3E4E1;
     display: flex;
     flex-direction: column;
-    
+
     header {
         background-image: url('../../img/header.svg');
         background-repeat: no-repeat;
         height: 110px;
         margin-bottom: 2rem;
     }
-    
+
     .menuList {
         margin-top: 2rem;
         padding: 1rem;
         list-style: none;
-        
+
         li {
             margin-bottom: 1.2rem;
             display: grid;
@@ -30,6 +30,7 @@
             .coffeeName {
                 grid-area: b;
             }
+
             .coffeePrice {
                 grid-area: c;
             }
@@ -42,14 +43,15 @@
 
     .menuList li button {
         display: flex;
-        align-items: center; 
-        justify-content: center; 
+        align-items: center;
+        justify-content: center;
         border-radius: 50%;
         padding: 3px;
-        background-color: rgb(31, 31, 31);;
+        background-color: rgb(31, 31, 31);
+        ;
         color: #ffffff;
     }
-    
+
     .menuList li button svg {
         width: 20px;
         height: 20px;

@@ -9,14 +9,14 @@ function CartIcon({ totalItemsInCart, openCartModal }) {
             <IconContext.Provider value={{ color: 'white', size: '1.5rem' }}>
                 <FaShoppingCart />
             </IconContext.Provider>
-        <span className={styles.total}>{totalItemsInCart}</span>
+            <span className={styles.total}>{totalItemsInCart}</span>
         </div>
     );
 }
 
 CartIcon.propTypes = {
     totalItemsInCart: PropTypes.number.isRequired,
-    openCartModal: PropTypes.func.isRequired, 
+    openCartModal: PropTypes.func.isRequired,
 };
 
 export default CartIcon;

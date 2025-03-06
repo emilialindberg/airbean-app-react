@@ -12,14 +12,14 @@ function CartActions({ handlePay, clearCart, loading, error }) {
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
             <br />
-            
+
             <Button className={styles.payBtn}
-            onClick={handlePay}
-            disabled={loading}
+                onClick={handlePay}
+                disabled={loading}
             >
                 {loading ? 'Behandlar...' : 'Betala'}
             </Button>
-            
+
         </div>
     );
 }

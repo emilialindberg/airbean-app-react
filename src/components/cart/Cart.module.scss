@@ -38,7 +38,7 @@
         border-radius: 8px;
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-top: 5rem; 
+        margin-top: 3rem; 
         position: relative;
         display: flex;
         flex-direction: column;
@@ -59,6 +59,7 @@
         }
 
         h5 {
+            line-height: 24px;
             grid-area: 1;
         }
 
@@ -76,23 +77,23 @@
             align-items: center;
             font-size: 1rem;
         }
+    }
 
-        .quantityHoldersP {
-            margin: 1rem 1rem 2rem;
+    .quantityHoldersP {
+        margin: 1rem 1rem 2rem;
+    }
 
-            .hGroup {
-                margin: 1rem 0 3rem 0;
+    .hGroup {
+        margin: 1rem 0 3rem 0;
 
-                .totalLine {
-                    display: flex;
-                    justify-content: space-between;
-                    margin: .5rem 0;
-                }
+        .totalLine {
+            display: flex;
+            justify-content: space-between;
+            margin: .5rem 0;
+        }
 
-                p {
-                    line-height: 1rem;
-                }
-            }
+        p {
+            line-height: 1rem;
         }
     }
 

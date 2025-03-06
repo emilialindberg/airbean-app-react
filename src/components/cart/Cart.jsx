@@ -8,8 +8,9 @@ import CartActions from './CartActions';
 import { sendOrder } from '../../components/api/Api';
 import Button from '../button/Button';
 import { MdClose } from "react-icons/md";
+import PropTypes from 'prop-types';
 
-function Cart() {
+function CartModal({ onClose }) {
     const { cart, addQuantity, subtractQuantity, clearCart } = useStore();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -45,7 +46,9 @@ function Cart() {
     return (
         <div className={styles.cart}>
             <div className={styles.closeBtn}>
-                <Button className={styles.closeButton} onClick={() => navigate('/menu')}><MdClose /></Button>
+                <Button className={styles.closeButton} onClick={onClose}>
+                    <MdClose />
+                </Button>
             </div>
             <section className={styles.bubble}>
                 <h3>Din beställning</h3>
@@ -68,4 +71,8 @@ function Cart() {
     );
 }
 
-export default Cart;
+CartModal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+};
+
+export default CartModal;
